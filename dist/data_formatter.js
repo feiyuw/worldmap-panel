@@ -3,7 +3,7 @@
 System.register(['lodash', './geohash'], function (_export, _context) {
   "use strict";
 
-  var _, decodeGeoHash, _typeof, _createClass, DataFormatter;
+  var _, decodeGeoHash, _createClass, DataFormatter;
 
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -18,12 +18,6 @@ System.register(['lodash', './geohash'], function (_export, _context) {
       decodeGeoHash = _geohash.default;
     }],
     execute: function () {
-      _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
-        return typeof obj;
-      } : function (obj) {
-        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-      };
-
       _createClass = function () {
         function defineProperties(target, props) {
           for (var i = 0; i < props.length; i++) {
@@ -65,8 +59,6 @@ System.register(['lodash', './geohash'], function (_export, _context) {
                 var location = _.find(_this.ctrl.locations, function (loc) {
                   return typeof loc.key === 'number' ? loc.key === parseInt(serie.alias, 10) : loc.key.toUpperCase() === serie.alias.replace('.', '').toUpperCase();
                 });
-                console.log(_typeof(serie.alias));
-                console.log(location);
 
                 if (!location) return;
 
