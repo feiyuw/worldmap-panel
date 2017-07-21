@@ -20,8 +20,6 @@ export default class DataFormatter {
             loc.key === parseInt(serie.alias, 10) :
             loc.key.toUpperCase() === serie.alias.replace('.', '').toUpperCase();
         });
-        console.log(typeof serie.alias);
-        console.log(location);
 
         if (!location) return;
 
