@@ -73,7 +73,7 @@ System.register(['app/plugins/sdk', 'app/core/time_series2', 'app/core/utils/kbn
         mapCenter: 'China',
         mapCenterLatitude: 35,
         mapCenterLongitude: 106,
-        initialZoom: 3,
+        initialZoom: 4,
         valueName: 'total',
         circleMinSize: 2,
         circleMaxSize: 30,
