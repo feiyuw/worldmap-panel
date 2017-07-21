@@ -37,7 +37,6 @@ System.register(['app/plugins/sdk', 'app/core/time_series2', 'app/core/utils/kbn
 
   return {
     setters: [function (_appPluginsSdk) {
-      /* eslint import/no-extraneous-dependencies: 0 */
       MetricsPanelCtrl = _appPluginsSdk.MetricsPanelCtrl;
     }, function (_appCoreTime_series) {
       TimeSeries = _appCoreTime_series.default;
@@ -71,10 +70,10 @@ System.register(['app/plugins/sdk', 'app/core/time_series2', 'app/core/utils/kbn
 
       panelDefaults = {
         maxDataPoints: 1,
-        mapCenter: '(0°, 0°)',
-        mapCenterLatitude: 0,
-        mapCenterLongitude: 0,
-        initialZoom: 1,
+        mapCenter: 'China',
+        mapCenterLatitude: 35,
+        mapCenterLongitude: 106,
+        initialZoom: 3,
         valueName: 'total',
         circleMinSize: 2,
         circleMaxSize: 30,
@@ -92,6 +91,7 @@ System.register(['app/plugins/sdk', 'app/core/time_series2', 'app/core/utils/kbn
       };
       mapCenters = {
         '(0°, 0°)': { mapCenterLatitude: 0, mapCenterLongitude: 0 },
+        'China': { mapCenterLatitude: 35, mapCenterLongitude: 106 },
         'North America': { mapCenterLatitude: 40, mapCenterLongitude: -100 },
         'Europe': { mapCenterLatitude: 46, mapCenterLongitude: 14 },
         'West Asia': { mapCenterLatitude: 26, mapCenterLongitude: 53 },
@@ -171,8 +171,8 @@ System.register(['app/plugins/sdk', 'app/core/time_series2', 'app/core/utils/kbn
             } else if (this.panel.locationData === 'table') {
               // .. Do nothing
             } else if (this.panel.locationData !== 'geohash') {
-                window.$.getJSON('public/plugins/grafana-worldmap-panel/data/' + this.panel.locationData + '.json').then(this.reloadLocations.bind(this));
-              }
+              window.$.getJSON('public/plugins/grafana-worldmap-panel/data/' + this.panel.locationData + '.json').then(this.reloadLocations.bind(this));
+            }
           }
         }, {
           key: 'reloadLocations',
