@@ -15,7 +15,13 @@ export default class DataFormatter {
       this.ctrl.series.forEach((serie) => {
         const lastPoint = _.last(serie.datapoints);
         const lastValue = _.isArray(lastPoint) ? lastPoint[0] : null;
-        const location = _.find(this.ctrl.locations, (loc) => { return loc.key.toUpperCase() === serie.alias.replace('.', '').toUpperCase(); });
+        const location = _.find(this.ctrl.locations, (loc) => {
+          return typeof loc.key === 'number' ?
+            loc.key === parseInt(serie.alias, 10) :
+            loc.key.toUpperCase() === serie.alias.replace('.', '').toUpperCase();
+        });
+        console.log(typeof serie.alias);
+        console.log(location);
 
         if (!location) return;
 
