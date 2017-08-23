@@ -18,7 +18,7 @@ export default class WorldMap {
 
   createMap() {
     const mapCenter = window.L.latLng(parseFloat(this.ctrl.panel.mapCenterLatitude), parseFloat(this.ctrl.panel.mapCenterLongitude));
-    this.map = window.L.map(this.mapContainer, {worldCopyJump: true, center: mapCenter})
+    this.map = window.L.map(this.mapContainer, {worldCopyJump: true, center: mapCenter, scrollWheelZoom: false})
       .fitWorld()
       .zoomIn(parseInt(this.ctrl.panel.initialZoom, 10));
     this.map.panTo(mapCenter);
@@ -26,6 +26,8 @@ export default class WorldMap {
     const selectedTileServer = tileServers[this.ctrl.tileServer];
     window.L.tileLayer(selectedTileServer.url, {
       maxZoom: 18,
+      continuousWorld: false,
+      noWrap: true,
       subdomains: selectedTileServer.subdomains,
       reuseTiles: true,
       detectRetina: true,
