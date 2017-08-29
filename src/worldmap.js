@@ -18,7 +18,7 @@ export default class WorldMap {
 
   createMap() {
     const mapCenter = window.L.latLng(parseFloat(this.ctrl.panel.mapCenterLatitude), parseFloat(this.ctrl.panel.mapCenterLongitude));
-    this.map = window.L.map(this.mapContainer, {worldCopyJump: true, center: mapCenter, scrollWheelZoom: false})
+    this.map = window.L.map(this.mapContainer, {worldCopyJump: true, center: mapCenter, scrollWheelZoom: false, attributionControl: false})
       .fitWorld()
       .zoomIn(parseInt(this.ctrl.panel.initialZoom, 10));
     this.map.panTo(mapCenter);
