@@ -18,7 +18,7 @@ export default class DataFormatter {
         const location = _.find(this.ctrl.locations, (loc) => {
           return typeof loc.key === 'number' ?
             loc.key === parseInt(serie.alias, 10) :
-            loc.key.toUpperCase() === serie.alias.replace('.', '').toUpperCase();
+            loc.key.toUpperCase() === serie.alias.split('.')[0].toUpperCase(); // XXX: endpoint.counter => endpoint
         });
 
         if (!location) return;

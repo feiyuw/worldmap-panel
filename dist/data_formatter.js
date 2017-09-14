@@ -57,7 +57,7 @@ System.register(['lodash', './geohash'], function (_export, _context) {
                 var lastPoint = _.last(serie.datapoints);
                 var lastValue = _.isArray(lastPoint) ? lastPoint[0] : null;
                 var location = _.find(_this.ctrl.locations, function (loc) {
-                  return typeof loc.key === 'number' ? loc.key === parseInt(serie.alias, 10) : loc.key.toUpperCase() === serie.alias.replace('.', '').toUpperCase();
+                  return typeof loc.key === 'number' ? loc.key === parseInt(serie.alias, 10) : loc.key.toUpperCase() === serie.alias.split('.')[0].toUpperCase(); // XXX: endpoint.counter => endpoint
                 });
 
                 if (!location) return;
